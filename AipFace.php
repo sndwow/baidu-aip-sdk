@@ -113,8 +113,12 @@ class AipFace extends AipBase {
      * @var string
      */
     private $videoSessioncodeUrl = 'https://aip.baidubce.com/rest/2.0/face/v1/faceliveness/sessioncode';
-
     
+    /**
+     * 人脸融合url
+     * @var string
+     */
+    private $mergeUrl = 'https://aip.baidubce.com/rest/2.0/face/v1/merge';
 
     /**
      * 人脸检测接口
@@ -538,5 +542,21 @@ class AipFace extends AipBase {
             'Content-Type' => 'application/json',
         ));
     }
-
+    
+    /**
+     * 人脸比对接口
+     *
+     * @param array $images
+     * @param array $options
+     *
+     * @return array
+     */
+    public function merge($images, $options = array())
+    {
+        $data = array_merge($images, $options);
+        
+        return $this->request($this->mergeUrl, json_encode($data), array(
+            'Content-Type' => 'application/json',
+        ));
+    }
 }
