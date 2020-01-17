@@ -27,7 +27,7 @@
 **Composer安装：**
 
 ```
-  composer require baidu/aip-sdk
+  composer require sndwow/baidu-aip-sdk
 ```
 
 **手动安装步骤如下：**
